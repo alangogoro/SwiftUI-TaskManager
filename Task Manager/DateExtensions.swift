@@ -24,6 +24,14 @@ extension Date {
         Calendar.current.isDateInToday(self)
     }
     
+    var isSameHour: Bool {
+        return Calendar.current.compare(self, to: .init(), toGranularity: .hour) == .orderedSame
+    }
+    
+    var isPast: Bool {
+        Calendar.current.compare(self, to: .init(), toGranularity: .hour) == .orderedAscending
+    }
+    
     // Fetching Week based on given date
     func fetchWeek(_ date: Date = .init()) -> [WeekDay] {
         let calendar = Calendar.current

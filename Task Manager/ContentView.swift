@@ -31,7 +31,7 @@ struct ContentView: View {
             VStack(alignment: .leading) {
                 Text("Calendar")
                     .font(.system(size: 36, weight: .semibold))
-
+                
                 // Week Slider
                 TabView(selection: $currentWeekIndex) {
                     ForEach(weekSlider.indices, id: \.self) { index in
@@ -56,11 +56,20 @@ struct ContentView: View {
                     createWeek = true
                 }
             }
-
+            
+            ScrollView(.vertical) {
+                VStack {
+                    // Task View
+                    taskView()
+                }
+                .hSpacing(.center)
+                .vSpacing(.center)
+            }
+            .scrollIndicators(.hidden)
         }
         .vSpacing(.top)
         .frame(maxWidth: .infinity)
-
+        
         .onAppear {
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
@@ -78,7 +87,7 @@ struct ContentView: View {
         }
     }
     
-    // Week View
+    // MARK: - Week View
     @ViewBuilder
     func weekView(_ week: [Date.WeekDay]) -> some View {
         HStack(spacing: 0) {
@@ -122,7 +131,7 @@ struct ContentView: View {
         .background {
             GeometryReader {
                 let minX = $0.frame(in: .global).minX
-
+                
                 Color.clear
                     .preference(key: OffsetKey.self, value: minX)
                     .onPreferenceChange(OffsetKey.self) { value in
@@ -134,7 +143,7 @@ struct ContentView: View {
             }
         }
     }
-
+    
     func paginateWeek() {
         if weekSlider.indices.contains(currentWeekIndex) {
             if let firstDate = weekSlider[currentWeekIndex].first?.date, currentWeekIndex == 0 {
@@ -149,6 +158,24 @@ struct ContentView: View {
                 currentWeekIndex = weekSlider.count - 2
             }
         }
+    }
+    
+    // MARK: - Task View
+    @ViewBuilder
+    func taskView() -> some View {
+        VStack(alignment: .leading) {
+            ForEach($tasks) { $task in
+                TaskItem(task: $task)
+                    .background(alignment: .leading) {
+                        if tasks.last?.id != task.id {
+                            Rectangle()
+                                .frame(width: 1)
+                                .offset(x: 24, y: 45)
+                        }
+                    }
+            }
+        }
+        .padding(.top)
     }
 }
 
