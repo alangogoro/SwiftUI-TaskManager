@@ -85,6 +85,23 @@ struct ContentView: View {
                 }
             }
         }
+        // Add New Task Button
+        .overlay(alignment: .bottomTrailing) {
+            Button(action: {
+                createNewTask.toggle()
+            }, label: {
+                Image(systemName: "plus")
+                    .imageScale(.large)
+                    .padding(26)
+                    .foregroundColor(.white)
+                    .background(.black)
+                    .clipShape(Circle())
+                    .padding([.horizontal])
+            })
+            .fullScreenCover(isPresented: $createNewTask, content: {
+                NewTask()
+            })
+        }
     }
     
     // MARK: - Week View

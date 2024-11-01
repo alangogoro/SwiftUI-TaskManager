@@ -16,6 +16,7 @@
 		CE28D6732CD3F880001F7EA7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28D6722CD3F880001F7EA7 /* DateExtensions.swift */; };
 		CEAD51DB2CD52A6E00424CEB /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD51DA2CD52A6E00424CEB /* OffsetKey.swift */; };
 		CEAD51DF2CD539B900424CEB /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD51DE2CD539B900424CEB /* TaskItem.swift */; };
+		CEAD51E12CD544C600424CEB /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD51E02CD544C600424CEB /* NewTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CE28D6722CD3F880001F7EA7 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		CEAD51DA2CD52A6E00424CEB /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
 		CEAD51DE2CD539B900424CEB /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
+		CEAD51E02CD544C600424CEB /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				CE28D6672CD3F5A4001F7EA7 /* ContentView.swift */,
 				CE28D6682CD3F5A4001F7EA7 /* Task.swift */,
 				CEAD51DE2CD539B900424CEB /* TaskItem.swift */,
+				CEAD51E02CD544C600424CEB /* NewTask.swift */,
 				CE28D6702CD3F797001F7EA7 /* +View.swift */,
 				CE28D6722CD3F880001F7EA7 /* DateExtensions.swift */,
 				CEAD51DA2CD52A6E00424CEB /* OffsetKey.swift */,
@@ -160,6 +163,7 @@
 				CE28D6732CD3F880001F7EA7 /* DateExtensions.swift in Sources */,
 				CE28D66B2CD3F5A4001F7EA7 /* ContentView.swift in Sources */,
 				CE28D66C2CD3F5A4001F7EA7 /* Task.swift in Sources */,
+				CEAD51E12CD544C600424CEB /* NewTask.swift in Sources */,
 				CE28D66D2CD3F5A4001F7EA7 /* Task_ManagerApp.swift in Sources */,
 				CEAD51DF2CD539B900424CEB /* TaskItem.swift in Sources */,
 			);
