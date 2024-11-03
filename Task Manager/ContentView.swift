@@ -20,9 +20,6 @@ struct ContentView: View {
     
     @State private var createWeek: Bool = false
     
-    // For Building the UI, this will be updated in the next part with SwiftData
-    @State private var tasks: [Task] = sampleTask.sorted(by: { $1.date > $0.date })
-    
     // Now time to add Create Task Layout
     @State private var createNewTask: Bool = false
     
@@ -59,8 +56,7 @@ struct ContentView: View {
             
             ScrollView(.vertical) {
                 VStack {
-                    // Task View
-                    taskView()
+                    TasksView(date: $currentdate)
                 }
                 .hSpacing(.center)
                 .vSpacing(.center)
@@ -175,24 +171,6 @@ struct ContentView: View {
                 currentWeekIndex = weekSlider.count - 2
             }
         }
-    }
-    
-    // MARK: - Task View
-    @ViewBuilder
-    func taskView() -> some View {
-        VStack(alignment: .leading) {
-            ForEach($tasks) { $task in
-                TaskItem(task: $task)
-                    .background(alignment: .leading) {
-                        if tasks.last?.id != task.id {
-                            Rectangle()
-                                .frame(width: 1)
-                                .offset(x: 24, y: 45)
-                        }
-                    }
-            }
-        }
-        .padding(.top)
     }
 }
 

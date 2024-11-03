@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskItem: View {
     
-    @Binding var task: Task
+    @Bindable var task: Task
     
     var body: some View {
         HStack(spacing: 15) {
@@ -46,7 +46,7 @@ struct TaskItem: View {
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(task.tint.opacity(0.2))
+            .background(Color(task.tint).opacity(0.2))
             .clipShape(.rect(cornerRadius: 20))
         }
         .padding(.horizontal)
@@ -62,6 +62,5 @@ struct TaskItem: View {
 }
 
 #Preview {
-    TaskItem(task: .constant(.init(title: "Task Title", caption: "Task Caption",
-                                   date: .now, tint: .red)))
+    TaskItem(task: Task(title: "Task Title", caption: "Task Caption", tint: "taskColor 1"))
 }
